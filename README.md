@@ -1,38 +1,73 @@
-# sv
+# Thrifty - Modern E-commerce Platform
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Creating a project
+A full-featured e-commerce solution with integrated CMS admin panel, built with SvelteKit and modern web technologies.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
+
+### Storefront
+
+- 🛍️ Product catalog with categories
+- 🔍 Advanced search & filtering
+- 🛒 Shopping cart functionality
+- 💳 Checkout process (Stripe integration placeholder)
+- ⚡ Blazing fast performance
+
+### Admin CMS
+
+- 📦 Product management (CRUD operations)
+- 📊 Sales analytics dashboard
+- 📦 Inventory tracking
+- 📝 Content management system
+- 🔐 Role-based access control
+
+### Tech Stack
+
+- 🚀 SvelteKit 5.0 + TypeScript
+- 🎨 shadcn-svelte UI components
+- 💅 Tailwind CSS + CSS Variables
+- 📦 State management with Runed
+- 📸 Image optimization via @sveltejs/enhanced-img
+- 🖼️ Media carousels with Embla
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm 9+
+- (Optional) Supabase/Convex account for backend
+
+### Installation
+
+1. Clone the repository
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+git clone https://github.com/your-username/thrifty.git
+cd thrifty
 ```
 
-## Developing
+2. Install dependencies
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+npm install
+```
+
+3. Update environment variables
+
+```bash
+cp .env.example .env  # Update with your keys
+```
+
+4. Start the development server
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Project Structure
 
-To create a production version of your app:
+## Developing
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `
