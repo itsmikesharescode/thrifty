@@ -24,3 +24,5 @@ vite.config.ts.timestamp-*
 
 # Cloudflare
 wrangler.toml
+wrangler.jsonc
+.cloudflare
