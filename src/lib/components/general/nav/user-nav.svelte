@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" module>
 	import AlignJustify from 'lucide-svelte/icons/align-justify';
 	import Button from '$lib/components/internal/button/button.svelte';
 	import { NavigationMenu } from 'bits-ui';
@@ -6,12 +6,12 @@
 	import Lightbulb from 'lucide-svelte/icons/lightbulb';
 	import MessageSquarePlus from 'lucide-svelte/icons/message-square-plus';
 	import ProductSearch from '../toolbars/product-search/product-search.svelte';
-	import Profile from '$lib/components/general/toolbars/profile/profile.svelte';
 	import * as Sheet from '$lib/components/internal/sheet/index.js';
 	import * as Accordion from '$lib/components/internal/accordion/index.js';
 	import ProductCart from '../toolbars/product-cart/product-cart.svelte';
+	import * as Avatar from '$lib/components/internal/avatar/index';
 
-	const links = [
+	export const links = [
 		{
 			label: 'Home',
 			href: '/'
@@ -39,9 +39,28 @@
 			]
 		}
 	];
+</script>
 
+<script lang="ts">
 	let openMenu = $state(false);
 </script>
+
+{#snippet Profile({ class: className }: { class: string })}
+	<Button
+		href="/authenticated/profile"
+		onclick={() => (openMenu = false)}
+		size="sm"
+		class={className}
+	>
+		<div class="flex items-center gap-2">
+			<span>My Profile</span>
+			<Avatar.Root class="size-8">
+				<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+				<Avatar.Fallback>CN</Avatar.Fallback>
+			</Avatar.Root>
+		</div>
+	</Button>
+{/snippet}
 
 <nav class="sticky top-0 z-30 border-b-2 bg-background">
 	<div class="container flex items-center justify-between p-4 md:px-8">
@@ -121,7 +140,8 @@
 		<div class="z-20 flex w-fit items-center gap-2">
 			<ProductSearch />
 			<ProductCart />
-			<Profile class="hidden md:flex" contentClass="hidden md:flex" />
+
+			{@render Profile({ class: 'hidden md:flex' })}
 
 			<Button onclick={() => (openMenu = true)} size="icon" variant="ghost" class="md:hidden">
 				<AlignJustify />
@@ -144,7 +164,7 @@
 							<Accordion.Content class="gap-4 border-l-[1px] border-gray-200 pl-2">
 								{#each link.childLinks as childLink}
 									<Sheet.Title class="mt-2 px-2 text-left">
-										<a href={childLink.href}>
+										<a onclick={() => (openMenu = false)} href={childLink.href}>
 											<span class="text-sm font-medium">{childLink.label}</span>
 										</a>
 									</Sheet.Title>
@@ -154,7 +174,7 @@
 					</Accordion.Root>
 				{:else}
 					<Sheet.Title class="text-left">
-						<a href={link.href}>
+						<a onclick={() => (openMenu = false)} href={link.href}>
 							<span class="text-sm font-medium">{link.label}</span>
 						</a>
 					</Sheet.Title>
@@ -163,7 +183,7 @@
 		</Sheet.Header>
 
 		<Sheet.Footer>
-			<Profile isMobile class="w-full" />
+			{@render Profile({ class: 'md:hidden' })}
 		</Sheet.Footer>
 	</Sheet.Content>
 </Sheet.Root>
