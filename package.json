@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.9",
 		"@eslint/js": "^9.26.0",
-		"@lucide/svelte": "^0.503.0",
+		"@lucide/svelte": "^0.509.0",
 		"@sveltejs/adapter-auto": "^4.0.0",
 		"@sveltejs/adapter-cloudflare-workers": "^2.9.0",
 		"@sveltejs/kit": "^2.20.8",
@@ -47,6 +47,7 @@
 	},
 	"dependencies": {
 		"@sveltejs/enhanced-img": "^0.4.4",
+		"@tanstack/table-core": "^8.21.3",
 		"@unpic/svelte": "^1.0.0",
 		"embla-carousel-autoplay": "^8.6.0",
 		"lucide-svelte": "^0.501.0",

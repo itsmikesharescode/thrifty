@@ -46,12 +46,7 @@
 </script>
 
 {#snippet Profile({ class: className }: { class: string })}
-	<Button
-		href="/authenticated/profile"
-		onclick={() => (openMenu = false)}
-		size="sm"
-		class={className}
-	>
+	<Button href="/profile" onclick={() => (openMenu = false)} size="sm" class={className}>
 		<div class="flex items-center gap-2">
 			<span>My Profile</span>
 			<Avatar.Root class="size-8">
